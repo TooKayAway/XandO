@@ -10,6 +10,7 @@ const char BLANK = ' ';
 const char X = 'X';
 const char O = 'O';
 const int QUIT = -1;
+char winner = ' ';
 
 int main()
 {
@@ -50,9 +51,43 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     if ( turn == 'X' ) {
         board[row][column] = 'X';
+        if ( board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X' ) {
+            winner = 'X';
+        } else if ( board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X' ) {
+            winner = 'X';
+        } else if ( board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X' ) {
+            winner = 'X';
+        } else if ( board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X' ) {
+            winner = 'X';
+        } else if ( board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X' ) {
+            winner = 'X';
+        } else if ( board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X' ) {
+            winner = 'X';
+        } else if ( board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X' ) {
+            winner = 'X';
+        } else if ( board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X' ) {
+            winner = 'X';
+        }
         turn = 'O';
     } else if ( turn == 'O' ) {
         board[row][column] = 'O';
+        if ( board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O' ) {
+            winner = 'O';
+        } else if ( board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O' ) {
+            winner = 'O';
+        } else if ( board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O' ) {
+            winner = 'O';
+        } else if ( board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O' ) {
+            winner = 'O';
+        } else if ( board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O' ) {
+            winner = 'O';
+        } else if ( board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O' ) {
+            winner = 'O';
+        } else if ( board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O' ) {
+            winner = 'O';
+        } else if ( board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O' ) {
+            winner = 'O';
+        }
         turn = 'X';
     }
     
@@ -70,6 +105,12 @@ int main()
         }
         cout<<endl;
     }
+
+    if ( winner != ' ' ) {
+        cout<<"Winner is "<<winner<<endl;
+        playing = false;
+    }
+
   }while( playing );
 
   cout<<"Goodbye!\n";
